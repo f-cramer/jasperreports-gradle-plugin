@@ -1,0 +1,51 @@
+name: Build and test
+on:
+  push:
+
+permissions:
+  checks: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDKs
+        uses: actions/setup-java@v4
+        with:
+          # last one is default version
+          java-version: |
+            17
+            21
+            8
+          distribution: 'temurin'
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v2
+      - name: Build with Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          arguments: assemble
+      - name: Test with Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          arguments: check --continue
+      - name: Save ktlint reports
+        uses: jwgmeligmeyling/checkstyle-github-action@v1
+        if: always() # always run even if the previous step fails
+        with:
+          name: ktlint
+          title: ktlint Code Analyzer Report
+          path: '**/ktlint*.xml'
+      - name: Save detekt reports
+        uses: jwgmeligmeyling/checkstyle-github-action@v1
+        if: always() # always run even if the previous step fails
+        with:
+          name: detekt
+          title: detekt Code Analyzer Report
+          path: '**/detekt.xml'
+      - name: Publish JUnit Test Report
+        uses: mikepenz/action-junit-report@v4
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: '**/build/test-results/test*/TEST-*.xml'
