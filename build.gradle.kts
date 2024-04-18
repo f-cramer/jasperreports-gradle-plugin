@@ -23,7 +23,7 @@ repositories {
     maven { url = uri("https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/") }
 }
 
-val jasperreportsVersion = "6.17.0"
+val jasperreportsVersion = "6.21.3"
 
 dependencies {
     compileOnly(group = "net.sf.jasperreports", name = "jasperreports", version = jasperreportsVersion)
