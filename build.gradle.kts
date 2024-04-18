@@ -29,7 +29,7 @@ dependencies {
     compileOnly(group = "net.sf.jasperreports", name = "jasperreports", version = jasperreportsVersion)
 
     testCompileOnly(group = "net.sf.jasperreports", name = "jasperreports", version = jasperreportsVersion)
-    testImplementation(group = "com.willowtreeapps.assertk", name = "assertk-jvm", version = "0.28.0")
+    testImplementation(group = "com.willowtreeapps.assertk", name = "assertk-jvm", version = "0.28.1")
     testImplementation(gradleTestKit())
 }
 
