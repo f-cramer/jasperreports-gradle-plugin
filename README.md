@@ -66,7 +66,7 @@ The plugin is tested with Java 8, Gradle 8.6 and the following JasperReports ver
 * 6.18.1
 * 6.19.1
 * 6.20.6
-* 6.21.2
+* 6.21.3
 
 ### Example
 
