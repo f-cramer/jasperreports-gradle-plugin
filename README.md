@@ -1,6 +1,6 @@
 # Gradle JasperReports Plugin
 
-[![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/com/github/f-cramer/jasperreports/maven-metadata.xml.svg?colorB=007ec6&label=version)](https://plugins.gradle.org/plugin/com.github.gmazelier.jasperreports)
+[![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/io/github/f-cramer/gradle/jasperreports-gradle-plugin/maven-metadata.xml.svg?colorB=007ec6&label=version)](https://plugins.gradle.org/plugin/io.github.f-cramer.jasperreports)
 
 ## Description
 
