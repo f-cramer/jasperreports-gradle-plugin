@@ -37,7 +37,7 @@ Below are the parameters that can be used to configure the build:
 
 | Parameter           | Type                         | Description                                                                                   |
 |---------------------|------------------------------|-----------------------------------------------------------------------------------------------|
-| `srcDir`            | `File`                       | Design source files directory. Default value: `src/main/jasperreports`                        |
+| `srcDir`            | `File`                       | Design source files directory. Default value: `src/main/reports`                              |
 | `tmpDir`            | `File`                       | Temporary files (`.java`) directory. Default value: `${project.buildDir}/jasperreports/tmp`   |
 | `outDir`            | `File`                       | Compiled reports file directory. Default value: `${project.buildDir}/jasperreports/out`       |
 | `srcExt`            | `String`                     | Design source files extension. Default value: `'.jrxml'`                                      |
@@ -73,7 +73,7 @@ The plugin is tested with Java 8, Gradle 8.6 and the following JasperReports ver
 Below is a complete example, with default values:
 
     jasperreports {
-        srcDir = file("src/main/jasperreports")
+        srcDir = file("src/main/reports")
         tmpDir = file("${project.buildDir}/jasperreports/tmp")
         outDir = file("${project.buildDir}/jasperreports/out")
         srcExt = ".jrxml"
