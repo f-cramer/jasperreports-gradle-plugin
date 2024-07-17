@@ -8,12 +8,16 @@ import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.FileType
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.api.provider.Property
+import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.Classpath
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.Nested
 import org.gradle.api.tasks.OutputDirectory
+import org.gradle.api.tasks.PathSensitive
+import org.gradle.api.tasks.PathSensitivity
 import org.gradle.api.tasks.TaskAction
 import org.gradle.jvm.toolchain.JavaLauncher
 import org.gradle.jvm.toolchain.JavaToolchainService
@@ -30,8 +34,10 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import javax.inject.Inject
 
+@CacheableTask
 abstract class JasperReportsCompileTask : DefaultTask() {
     @get:InputFiles
+    @get:Classpath
     val classpath: ConfigurableFileCollection = project.files()
 
     @get:Nested
@@ -42,6 +48,7 @@ abstract class JasperReportsCompileTask : DefaultTask() {
 
     @get:InputDirectory
     @get:Incremental
+    @get:PathSensitive(PathSensitivity.RELATIVE)
     val srcDir: DirectoryProperty = project.objects.directoryProperty()
         .convention(project.layout.projectDirectory.dir("src/main/reports"))
 

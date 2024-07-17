@@ -3,7 +3,7 @@ package com.github.cramer.gradle.jasperreports.utils
 import assertk.assertThat
 import assertk.assertions.isNotNull
 import assertk.assertions.isTrue
-import com.github.cramer.gradle.jasperreports.getJasperreportsVersion
+import com.github.cramer.gradle.jasperreports.getReportTemplateNameWithoutExtension
 import com.github.fcramer.gradle.jasperreports.commons.CompilationTask
 import com.github.fcramer.gradle.jasperreports.commons.TaskConfiguration
 import com.github.fcramer.gradle.jasperreports.utils.compileReport
@@ -15,8 +15,7 @@ import java.nio.file.Files
 class CompilationUtilsTest {
     @Test
     fun testCompilation(@TempDir directory: File?) {
-        val jasperreportsVersion = getJasperreportsVersion()!!
-        val fileName = if (jasperreportsVersion.startsWith("6.")) "Blank6" else "Blank"
+        val fileName = getReportTemplateNameWithoutExtension()
         val input = File(directory, "$fileName.jrxml")
         writeFile("/" + input.name, input)
         val output = File(directory, "$fileName.jasper")
