@@ -63,6 +63,7 @@ abstract class JasperReportsCompileTask : DefaultTask() {
 
     @get:Input
     val compiler: Property<String> = project.objects.property<String>()
+        .convention("net.sf.jasperreports.engine.design.JRJdtCompiler")
 
     @get:Input
     val verbose: Property<Boolean> = project.objects.property<Boolean>()
