@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.f-cramer.gradle"
-version = "0.0.1"
+version = "0.0.2-SNAPSHOT"
 
 java {
     toolchain {
