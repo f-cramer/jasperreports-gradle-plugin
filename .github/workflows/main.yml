@@ -24,11 +24,11 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v3
       - name: Build with Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
         with:
           arguments: assemble
       - name: Test with Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
         with:
           arguments: check --continue
       - name: Save ktlint reports
