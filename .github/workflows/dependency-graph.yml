@@ -18,11 +18,8 @@ jobs:
           java-version: '8'
           distribution: 'temurin'
       - name: Setup Gradle to generate and submit dependency graphs
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
         with:
           dependency-graph: generate-and-submit
-      - name: Setup Gradle to generate and submit dependency graphs
-        uses: gradle/actions/setup-gradle@v3
-        continue-on-error: true
-        with:
-          arguments: build
+      - name: Run Gradle build
+        run: ./gradlew build --continue
