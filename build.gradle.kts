@@ -1,6 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 plugins {
     `kotlin-dsl`
@@ -8,10 +10,11 @@ plugins {
     id("com.gradle.plugin-publish") version "1.2.2"
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
     id("io.gitlab.arturbosch.detekt") version "1.23.6"
+    id("net.researchgate.release") version "3.0.2"
 }
 
 group = "io.github.f-cramer.gradle"
-version = "0.0.2-SNAPSHOT"
+version = properties["version"]
 
 java {
     toolchain {
@@ -119,4 +122,41 @@ gradlePlugin {
             tags.add("jasperreports")
         }
     }
+}
+
+release {
+    tagTemplate.set("v\$version")
+    preTagCommitMessage.set("[Gradle Release Plugin] - release version ")
+    newVersionCommitMessage.set("[Gradle Release Plugin] - start work on ")
+    git {
+        requireBranch.set("master")
+    }
+}
+
+val changelogFile = File(rootDir, "CHANGELOG.md")
+val setChangelogDate = tasks.register("setChangelogDate") {
+    doLast {
+        val changelog = changelogFile.readText()
+        val now = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+        changelogFile.writeText(changelog.replace("(unreleased)", "($now)"))
+    }
+}
+
+val addChangelogEntry = tasks.register("addChangelogEntry") {
+    doLast {
+        val changelog = changelogFile.readText()
+        val version = project.version.toString().removeSuffix("-SNAPSHOT")
+        val entry = "### $version (unreleased)"
+        if (!changelog.startsWith(entry)) {
+            changelogFile.writeText(entry + "\n\n" + changelog)
+        }
+    }
+}
+
+tasks.named("preTagCommit") {
+    dependsOn(setChangelogDate)
+}
+
+tasks.named("updateVersion") {
+    finalizedBy(addChangelogEntry)
 }
