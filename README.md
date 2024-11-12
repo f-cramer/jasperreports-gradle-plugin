@@ -60,7 +60,7 @@ The compilation task does *not* add a default version of Jasperreports to the co
 
 ### Compatibility
 
-The plugin is tested with Java 8, Gradle 8.6 and the following JasperReports versions
+The plugin is tested with Java 8, Gradle 8.0.2 and the following JasperReports versions
 
 * 6.17.0
 * 6.18.1
