@@ -2,7 +2,6 @@ package com.github.cramer.gradle.jasperreports.utils
 
 import assertk.assertThat
 import assertk.assertions.isNotNull
-import assertk.assertions.isTrue
 import com.github.cramer.gradle.jasperreports.getReportTemplateNameWithoutExtension
 import com.github.fcramer.gradle.jasperreports.commons.CompilationTask
 import com.github.fcramer.gradle.jasperreports.commons.TaskConfiguration
@@ -20,7 +19,6 @@ class CompilationUtilsTest {
         writeFile("/" + input.name, input)
         val output = File(directory, "$fileName.jasper")
         val tmp = File(directory, "tmp")
-        assertThat(tmp.mkdirs(), name = "temporary directory was created or did already exists").isTrue()
 
         val configuration = TaskConfiguration(compiler = null, isValidateXml = true, isKeepJava = false, tmpDir = tmp)
         compileReport(CompilationTask(input, output, configuration))

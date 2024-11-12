@@ -1,4 +1,5 @@
 ### 0.0.3 (unreleased)
+* Create tmpDir before using it for compilation  ([#18](https://github.com/f-cramer/jasperreports-gradle-plugin/issues/18))
 
 ### 0.0.2 (2024-08-31)
 * Make JasperReportsCompileTask cacheable ([#11](https://github.com/f-cramer/jasperreports-gradle-plugin/issues/11))

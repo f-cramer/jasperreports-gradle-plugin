@@ -19,6 +19,13 @@ private fun configureJasperReportsContext(configuration: TaskConfiguration): Jas
     context.setProperty(JRReportSaxParserFactory.COMPILER_XML_VALIDATION, configuration.isValidateXml.toString())
     configuration.compiler?.let { context.setProperty(JRCompiler.COMPILER_PREFIX, it) }
     context.setProperty(JRCompiler.COMPILER_KEEP_JAVA_FILE, configuration.isKeepJava.toString())
-    context.setProperty(JRCompiler.COMPILER_TEMP_DIR, configuration.tmpDir.canonicalPath)
+
+    val tmpDir = configuration.tmpDir.canonicalFile
+    if (!tmpDir.exists()) {
+        tmpDir.mkdirs()
+    }
+    require(tmpDir.isDirectory) { "tmpDir could not be created" }
+    context.setProperty(JRCompiler.COMPILER_TEMP_DIR, tmpDir.path)
+
     return context
 }
