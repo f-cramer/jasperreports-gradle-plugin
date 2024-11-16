@@ -9,7 +9,7 @@ plugins {
     `java-gradle-plugin`
     id("com.gradle.plugin-publish") version "1.2.2"
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
-    id("io.gitlab.arturbosch.detekt") version "1.23.6"
+    id("io.gitlab.arturbosch.detekt") version "1.23.7"
     id("net.researchgate.release") version "3.0.2"
 }
 
