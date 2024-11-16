@@ -138,7 +138,8 @@ val setChangelogDate = tasks.register("setChangelogDate") {
     doLast {
         val changelog = changelogFile.readText()
         val now = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
-        changelogFile.writeText(changelog.replace("(unreleased)", "($now)"))
+        val version = project.version.toString().removeSuffix("-SNAPSHOT")
+        changelogFile.writeText(changelog.replace("[unreleased]", "$version ($now)"))
     }
 }
 
@@ -146,7 +147,7 @@ val addChangelogEntry = tasks.register("addChangelogEntry") {
     doLast {
         val changelog = changelogFile.readText()
         val version = project.version.toString().removeSuffix("-SNAPSHOT")
-        val entry = "### $version (unreleased)"
+        val entry = "## [unreleased]"
         if (!changelog.startsWith(entry)) {
             changelogFile.writeText(entry + "\n\n" + changelog)
         }
