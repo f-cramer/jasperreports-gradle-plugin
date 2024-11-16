@@ -1,6 +1,7 @@
 ## [unreleased]
 
 ### Dependencies
+- Bump `io.gitlab.arturbosch.detekt` from 1.23.6 to 1.23.7 ([#14](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/14))
 - Bump `mikepenz/action-junit-report` from 4 to 5 ([#17](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/17))
 
 ## 0.0.3 (2024-11-12)
