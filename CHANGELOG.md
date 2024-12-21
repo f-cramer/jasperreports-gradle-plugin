@@ -1,4 +1,5 @@
 ## [unreleased]
+- Add classpath to property `JRCompiler.COMPILER_CLASSPATH`
 
 ### Dependencies
 - Bump `com.gradle.plugin-publish` from 1.2.2 to 1.3.0 ([#15](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/15))

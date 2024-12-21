@@ -7,4 +7,5 @@ data class TaskConfiguration(
     val isValidateXml: Boolean,
     val isKeepJava: Boolean,
     val tmpDir: File,
+    val classpath: Collection<File>,
 )

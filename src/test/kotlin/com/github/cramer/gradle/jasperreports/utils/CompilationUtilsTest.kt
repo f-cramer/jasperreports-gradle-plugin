@@ -20,7 +20,8 @@ class CompilationUtilsTest {
         val output = File(directory, "$fileName.jasper")
         val tmp = File(directory, "tmp")
 
-        val configuration = TaskConfiguration(compiler = null, isValidateXml = true, isKeepJava = false, tmpDir = tmp)
+        val configuration =
+            TaskConfiguration(compiler = null, isValidateXml = true, isKeepJava = false, tmpDir = tmp, classpath = emptySet())
         compileReport(CompilationTask(input, output, configuration))
     }
 
