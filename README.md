@@ -8,7 +8,7 @@ Provides the capability to compile JasperReports design files. This plugin is ba
 
 ## Usage
 
-This plugin provides one main task, `compileAllReports`. It uses Gradles [input changes](https://docs.gradle.org/current/dsl/org.gradle.work.InputChanges.html) feature to compile out-of-date files and its [Worker API](https://docs.gradle.org/current/userguide/worker_api.html) for parallel processing. Adapt your build process to your own needs by defining the proper tasks depedencies (see [Custom Build Process](#Custom-Build-Process) below).
+This plugin provides one main task, `compileAllReports`. It uses Gradles [input changes](https://docs.gradle.org/current/dsl/org.gradle.work.InputChanges.html) feature to compile out-of-date files and its [Worker API](https://docs.gradle.org/current/userguide/worker_api.html) for parallel processing. Adapt your build process to your own needs by defining the proper tasks dependencies (see [Custom Build Process](#Custom-Build-Process) below).
 
 If your designs compilation needs to run after Groovy compilation, running `compileAllReports` should give a similar output:
 
@@ -52,7 +52,7 @@ Below are the parameters that can be used to configure the build:
 
 #### Attention:
 
-The compilation task does *not* add a default version of Jasperreports to the compilation classpath, so by default the task will fail. You have to add a version of Jasperreports and every other dependency needed to compile the reports yourself. The following example shows how to the applications *compile classpath*
+The compilation task does *not* add a default version of JasperReports to the compilation classpath, so by default the task will fail. You have to add a version of JasperReports and every other dependency needed to compile the reports yourself. The following example shows how to the applications *compile classpath*
 
     jasperreports {
         classpath.from(configurations.compileClasspath)
@@ -99,7 +99,7 @@ Adding a task dependency is very simple. For example, if you want to make sure t
 
 #### Adding Project Compiled Sources
 
-Use the `classpath` property to acces your compiled sources in you JasperReports designs. Configure your build script in a similar way:
+Use the `classpath` property to access your compiled sources in you JasperReports designs. Configure your build script in a similar way:
 
     jasperreports {
         verbose = true
