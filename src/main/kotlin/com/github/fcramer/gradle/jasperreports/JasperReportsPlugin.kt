@@ -13,11 +13,16 @@ class JasperReportsPlugin : Plugin<Project> {
         project.pluginManager.apply(JavaPlugin::class)
         val extension = project.extensions.create<JasperReportsExtension>(EXTENSION_NAME, project)
 
+        val classpathConfiguration = project.configurations.create(CONFIGURATION_NAME) {
+            description = "Classpath for JasperReports design source files."
+        }
+
         project.tasks.register<JasperReportsCompileTask>(COMPILE_TASK_NAME) {
             description = "Compile JasperReports design source files."
             group = GROUP
 
             classpath.from(extension.classpath)
+            classpath.from(classpathConfiguration)
             launcher.convention(extension.launcher)
             srcDir.convention(extension.srcDir)
             tmpDir.convention(extension.tmpDir)
@@ -35,6 +40,7 @@ class JasperReportsPlugin : Plugin<Project> {
     companion object {
         const val GROUP = "jasperReports"
         const val EXTENSION_NAME = "jasperreports"
+        const val CONFIGURATION_NAME = "jasperreportsClasspath"
         const val COMPILE_TASK_NAME = "compileAllReports"
     }
 }

@@ -106,6 +106,12 @@ Use the `classpath` property to access your compiled sources in you JasperReport
         classpath.from(project.sourceSets.main)
     }
 
+For dependencies that are only used to compile your JasperReports designs, these can be added to the configuration `jasperreportsClasspath` that is automatically created by the plugin:
+
+    dependencies {
+        jasperreportsCompile 'group:name:version'
+    }
+
 ## Getting Help
 
 To ask questions or report bugs, please use the [Github issues](https://github.com/f-cramer/jasperreports-gradle-plugin/issues).
