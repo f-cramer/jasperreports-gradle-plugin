@@ -1,4 +1,5 @@
 ## [unreleased]
+- Document that the plugin is tested with multiple Java versions
 
 ## 0.0.4 (2025-02-14)
 - Add classpath to property `JRCompiler.COMPILER_CLASSPATH`
