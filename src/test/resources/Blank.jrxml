@@ -1,12 +1,24 @@
-<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
 <jasperReport name="Blank" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="86ddf870-a8da-43b7-8c4e-639557a14022">
+	<parameter name="MY_PARAMETER" forPrompting="false" class="java.lang.String">
+		<description><![CDATA[MY_PARAMETER]]></description>
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<query language="sql"><![CDATA[]]></query>
+	<field name="myField" class="java.lang.String">
+		<description><![CDATA[myField]]></description>
+	</field>
 	<background splitType="Stretch"/>
 	<title height="79" splitType="Stretch"/>
 	<pageHeader height="35" splitType="Stretch"/>
 	<columnHeader height="61" splitType="Stretch"/>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<element kind="textField" uuid="980a1e18-7708-4a5b-94dc-dbead2ab2570" x="0" y="0" width="555" height="125">
+				<expression><![CDATA["Text: " + $F{myField}]]></expression>
+			</element>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+		</band>
 	</detail>
 	<columnFooter height="45" splitType="Stretch"/>
 	<pageFooter height="54" splitType="Stretch"/>

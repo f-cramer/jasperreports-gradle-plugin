@@ -84,6 +84,9 @@ for (javaVersion in javaVersions) {
             useJUnitJupiter()
             dependencies {
                 implementation("net.sf.jasperreports:jasperreports:$jasperreportsVersion")
+                if (!jasperreportsVersion.startsWith("6.")) {
+                    implementation("net.sf.jasperreports:jasperreports-jdt:$jasperreportsVersion")
+                }
                 runtimeOnly(sourceSets.test.get().runtimeClasspath)
                 compileOnly(sourceSets.test.get().compileClasspath)
                 annotationProcessor(sourceSets.test.get().annotationProcessorPath)
