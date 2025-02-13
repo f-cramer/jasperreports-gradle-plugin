@@ -1,4 +1,4 @@
-## [unreleased]
+## 0.0.4 (2025-02-14)
 - Add classpath to property `JRCompiler.COMPILER_CLASSPATH`
 - Create a configuration called `jasperreportsClasspath` that is automatically added to the classpath of the default task
 - Add documentation on how to compile designs for JasperReports 7+
