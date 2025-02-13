@@ -58,6 +58,8 @@ The compilation task does *not* add a default version of JasperReports to the co
         classpath.from(configurations.compileClasspath)
     }
 
+Starting with JasperReports 7 the `'net.sf.jasperreports:jasperreports'` dependency no longer contains the JDT compiler (you may experience an exception with message "Unable to load report"). To use the default plugin configuration with JasperReports 7+ you have to add the dependency `'net.sf.jasperreports:jasperreports-jdt'` to the classpath. To do this, you can either add it to the pre-existing `jasperreportsClasspath` configuration, or you create your own configuration and add it to the classpath as shown above.
+
 ### Compatibility
 
 The plugin is tested with Java 8, Gradle 8.0.2 and the following JasperReports versions

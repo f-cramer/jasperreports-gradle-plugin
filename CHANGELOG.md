@@ -1,6 +1,7 @@
 ## [unreleased]
 - Add classpath to property `JRCompiler.COMPILER_CLASSPATH`
 - Create a configuration called `jasperreportsClasspath` that is automatically added to the classpath of the default task
+- Add documentation on how to compile designs for JasperReports 7+
 
 ### Dependencies
 - Bump `com.gradle.plugin-publish` from 1.2.2 to 1.3.1 ([#15](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/15), [#23](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/23))
