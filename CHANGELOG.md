@@ -2,7 +2,7 @@
 - Add classpath to property `JRCompiler.COMPILER_CLASSPATH`
 
 ### Dependencies
-- Bump `com.gradle.plugin-publish` from 1.2.2 to 1.3.0 ([#15](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/15))
+- Bump `com.gradle.plugin-publish` from 1.2.2 to 1.3.1 ([#15](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/15), [#23](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/23))
 - Bump `io.gitlab.arturbosch.detekt` from 1.23.6 to 1.23.7 ([#14](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/14))
 - Bump `mikepenz/action-junit-report` from 4 to 5 ([#17](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/17))
 - Bump `net.researchgate.release` from 3.0.2 to 3.1.0 ([#22](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/22))
