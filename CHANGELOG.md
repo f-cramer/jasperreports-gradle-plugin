@@ -1,6 +1,9 @@
 ## [unreleased]
 - Document that the plugin is tested with multiple Java versions
 
+### Dependencies
+- Bump `org.jlleitschuh.gradle.ktlint` from 12.1.2 to 12.2.0 ([#26](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/26))
+
 ## 0.0.4 (2025-02-14)
 - Add classpath to property `JRCompiler.COMPILER_CLASSPATH`
 - Create a configuration called `jasperreportsClasspath` that is automatically added to the classpath of the default task
