@@ -2,6 +2,7 @@
 - Document that the plugin is tested with multiple Java versions
 
 ### Dependencies
+- Bump `io.gitlab.arturbosch.detekt` from 1.23.7 to 1.23.8 ([#25](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/25))
 - Bump `org.jlleitschuh.gradle.ktlint` from 12.1.2 to 12.2.0 ([#26](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/26))
 
 ## 0.0.4 (2025-02-14)
