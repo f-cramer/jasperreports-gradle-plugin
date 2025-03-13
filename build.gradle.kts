@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "io.github.f-cramer.gradle"
-version = properties["version"]
+version = properties["version"]!!
 
 java {
     toolchain {
@@ -149,7 +149,6 @@ val setChangelogDate = tasks.register("setChangelogDate") {
 val addChangelogEntry = tasks.register("addChangelogEntry") {
     doLast {
         val changelog = changelogFile.readText()
-        val version = project.version.toString().removeSuffix("-SNAPSHOT")
         val entry = "## [unreleased]"
         if (!changelog.startsWith(entry)) {
             changelogFile.writeText(entry + "\n\n" + changelog)
