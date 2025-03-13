@@ -75,7 +75,7 @@ val jasperreportsVersions = listOf(
     "6.19.1",
     "6.20.6",
     "6.21.4",
-    "7.0.1",
+    "7.0.2",
 )
 
 for (javaVersion in javaVersions) {
