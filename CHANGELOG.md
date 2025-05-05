@@ -2,6 +2,7 @@
 - Document that the plugin is tested with multiple Java versions
 - Run tests for JasperReports 7.0.2 instead of 7.0.1
 - Fix some warnings in build.gradle.kts
+- Run tests for JasperReports 7.0.3 instead of 7.0.2
 
 ### Dependencies
 - Bump `io.gitlab.arturbosch.detekt` from 1.23.7 to 1.23.8 ([#25](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/25))

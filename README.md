@@ -69,7 +69,7 @@ The plugin is tested with Java 8, 17, 21 and 23, Gradle 8.0.2 and the following 
 * 6.19.1
 * 6.20.6
 * 6.21.4
-* 7.0.2
+* 7.0.3
 
 ### Example
 
