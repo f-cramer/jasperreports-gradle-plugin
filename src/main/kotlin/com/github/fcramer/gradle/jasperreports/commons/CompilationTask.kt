@@ -16,7 +16,5 @@ class CompilationTask(
         return source == other.source
     }
 
-    override fun hashCode(): Int {
-        return source.hashCode()
-    }
+    override fun hashCode(): Int = source.hashCode()
 }

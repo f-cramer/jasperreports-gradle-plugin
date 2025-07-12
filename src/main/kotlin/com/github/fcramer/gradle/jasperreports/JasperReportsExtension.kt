@@ -10,7 +10,9 @@ import org.gradle.jvm.toolchain.JavaToolchainService
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.property
 
-abstract class JasperReportsExtension(project: Project) {
+abstract class JasperReportsExtension(
+    project: Project,
+) {
     val classpath: ConfigurableFileCollection = project.files()
     val launcher: Property<JavaLauncher> = project.objects.property<JavaLauncher>().convention(
         project.extensions.getByType<JavaToolchainService>()
