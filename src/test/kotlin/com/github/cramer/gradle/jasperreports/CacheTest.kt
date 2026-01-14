@@ -5,9 +5,10 @@ import assertk.assertions.isEqualTo
 import org.gradle.testkit.runner.GradleRunner
 import org.gradle.testkit.runner.TaskOutcome
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import org.junit.jupiter.api.io.TempDir
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.MethodSource
 import java.io.File
 import java.nio.file.Files
 
@@ -17,8 +18,9 @@ class CacheTest {
     private lateinit var projectDirectory: File
     private lateinit var buildFile: File
 
-    @Test
-    fun `cacheableTask is loaded from cache`() {
+    @ParameterizedTest(name = "{index} - on Gradle {0}")
+    @MethodSource("getGradleVersions")
+    fun `cacheableTask is loaded from cache`(gradleVersion: String) {
         buildFile.writeText(
             """
                 plugins {
@@ -28,21 +30,22 @@ class CacheTest {
             """.trimIndent(),
         )
 
-        val result1 = runner().build()
+        val result1 = runner(gradleVersion).build()
         assertThat(result1.task(":compileAllReports")?.outcome, name = "first compileAllReports outcome")
             .isEqualTo(TaskOutcome.SUCCESS)
 
         File(projectDirectory, "build").deleteRecursively()
 
-        val result2 = runner().build()
+        val result2 = runner(gradleVersion).build()
         assertThat(result2.task(":compileAllReports")?.outcome, name = "second compileAllReports outcome")
             .isEqualTo(TaskOutcome.FROM_CACHE)
     }
 
-    private fun runner(): GradleRunner = GradleRunner.create()
+    private fun runner(gradleVersion: String): GradleRunner = GradleRunner.create()
         .withPluginClasspath()
-        .withArguments("--build-cache", "compileAllReports")
+        .withArguments("--build-cache", "compileAllReports", "--full-stacktrace")
         .withProjectDir(projectDirectory)
+        .withGradleVersion(gradleVersion)
 
     @BeforeEach
     fun setup() {
@@ -68,5 +71,11 @@ class CacheTest {
                 input.copyTo(output)
             }
         }
+    }
+
+    companion object {
+        @JvmStatic
+        fun getGradleVersions(): List<String> = System.getProperty("gradle.versions")!!
+            .split(",")
     }
 }

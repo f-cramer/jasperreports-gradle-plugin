@@ -62,7 +62,7 @@ Starting with JasperReports 7 the `'net.sf.jasperreports:jasperreports'` depende
 
 ### Compatibility
 
-The plugin is tested with Java 8, 17, 21 and 25, Gradle 8.0.2 and the following JasperReports versions
+The plugin is tested with Java 8, 17, 21 and 25 and the following JasperReports versions
 
 * 6.17.0
 * 6.18.1
@@ -70,6 +70,14 @@ The plugin is tested with Java 8, 17, 21 and 25, Gradle 8.0.2 and the following 
 * 6.20.6
 * 6.21.5
 * 7.0.3
+
+Caching tests are run using the following Gradle versions if they are compatible with a given Java version
+
+* 8.0.2
+* 8.5
+* 8.14.3
+* 9.0.0
+* 9.2.1
 
 ### Example
 

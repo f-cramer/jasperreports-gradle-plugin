@@ -62,11 +62,28 @@ testing.suites.named<JvmTestSuite>("test") {
     }
 }
 
+val gradleCurrent = GradleVersion.current().version
+val gradle8Dot5 = "8.5"
+val gradle8Dot14 = "8.14.3"
+val gradle9Dot0 = "9.0.0"
+val gradle9Dot2 = "9.2.1"
+val gradleVersions = listOf(
+    gradleCurrent,
+    gradle8Dot5,
+    gradle8Dot14,
+    gradle9Dot0,
+    gradle9Dot2,
+)
+
+val java8 = 8
+val java17 = 17
+val java21 = 21
+val java25 = 25
 val javaVersions = listOf(
-    8,
-    17,
-    21,
-    25,
+    java8,
+    java17,
+    java21,
+    java25,
 )
 
 val jasperreportsVersions = listOf(
@@ -78,7 +95,22 @@ val jasperreportsVersions = listOf(
     "7.0.3",
 )
 
+val ignoredJavaVersionsByGradleVersion = mapOf(
+    gradleCurrent to listOf(java25),
+    gradle8Dot5 to listOf(java25),
+    gradle8Dot14 to listOf(java25),
+    gradle9Dot0 to listOf(java8),
+    gradle9Dot2 to listOf(java8),
+)
+
 for (javaVersion in javaVersions) {
+    val nonIgnoredGradleVersions = gradleVersions
+        .filter {
+            val ignoredJavaVersions = ignoredJavaVersionsByGradleVersion[it] ?: emptyList()
+            javaVersion !in ignoredJavaVersions
+        }
+        .joinToString(separator = ",")
+
     for (jasperreportsVersion in jasperreportsVersions) {
         testing.suites.create<JvmTestSuite>("test-jdk$javaVersion-jasperreports$jasperreportsVersion") {
             useJUnitJupiter()
@@ -97,12 +129,14 @@ for (javaVersion in javaVersions) {
             }
             targets.configureEach {
                 testTask.configure {
+                    maxParallelForks = (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(1)
                     javaLauncher.set(
                         javaToolchains.launcherFor {
                             languageVersion.set(JavaLanguageVersion.of(javaVersion))
                         },
                     )
                     systemProperty("jasperreports.version", jasperreportsVersion)
+                    systemProperty("gradle.versions", nonIgnoredGradleVersions)
                 }
             }
         }
