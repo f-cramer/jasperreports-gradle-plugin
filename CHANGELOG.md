@@ -3,6 +3,7 @@
 - Run tests for JasperReports 7.0.2 instead of 7.0.1
 - Fix some warnings in build.gradle.kts
 - Run tests for JasperReports 7.0.3 instead of 7.0.2
+- Throw a better exception when the template might be for an older JasperReports version
 
 ### Dependencies
 - Bump `actions/checkout` from 4 to 5 ([#33](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/33))

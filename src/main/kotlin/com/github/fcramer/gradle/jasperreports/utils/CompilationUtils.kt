@@ -1,18 +1,46 @@
 package com.github.fcramer.gradle.jasperreports.utils
 
+import com.github.fcramer.gradle.jasperreports.JasperReportsPlugin
 import com.github.fcramer.gradle.jasperreports.commons.CompilationTask
 import com.github.fcramer.gradle.jasperreports.commons.TaskConfiguration
+import net.sf.jasperreports.engine.JRException
 import net.sf.jasperreports.engine.JasperCompileManager
 import net.sf.jasperreports.engine.JasperReportsContext
 import net.sf.jasperreports.engine.SimpleJasperReportsContext
 import net.sf.jasperreports.engine.design.JRCompiler
 import net.sf.jasperreports.engine.xml.JRReportSaxParserFactory
 import java.io.File
+import java.util.Properties
 
 fun compileReport(task: CompilationTask) {
     val context = configureJasperReportsContext(task.configuration)
     val compileManager = JasperCompileManager.getInstance(context)
-    compileManager.compileToFile(task.source.absolutePath, task.output.absolutePath)
+
+    fun doCompileReport() {
+        compileManager.compileToFile(task.source.absolutePath, task.output.absolutePath)
+    }
+
+    val version = getJasperreportsVersion()
+    if (version != null && version.startsWith("6")) {
+        doCompileReport()
+    } else {
+        try {
+            doCompileReport()
+        } catch (e: JRException) {
+            val messageTest = "Unable to load report"
+            if (e.message == messageTest) {
+                throw JRException("$messageTest. Please check if your template is compatible with JasperReports 7+", e)
+            }
+        }
+    }
+}
+
+fun getJasperreportsVersion(): String? {
+    val properties = Properties()
+    JasperReportsPlugin::class.java.getResourceAsStream("/META-INF/maven/net.sf.jasperreports/jasperreports/pom.properties")!!.use {
+        properties.load(it)
+    }
+    return properties.getProperty("version")
 }
 
 private fun configureJasperReportsContext(configuration: TaskConfiguration): JasperReportsContext {
