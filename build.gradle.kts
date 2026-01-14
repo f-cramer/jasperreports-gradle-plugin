@@ -66,7 +66,7 @@ val javaVersions = listOf(
     8,
     17,
     21,
-    23,
+    25,
 )
 
 val jasperreportsVersions = listOf(
