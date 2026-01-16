@@ -9,7 +9,7 @@
 - Test plugin on multiple Gradle versions
 
 ### Dependencies
-- Bump `actions/checkout` from 4 to 5 ([#33](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/33))
+- Bump `actions/checkout` from 4 to 6 ([#33](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/33), [#41](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/41))
 - Bump `actions/setup-java` from 4 to 5 ([#35](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/35))
 - Bump `dangoslen/dependabot-changelog-helper` from 3 to 4 ([#27](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/27))
 - Bump `io.gitlab.arturbosch.detekt` from 1.23.7 to 1.23.8 ([#25](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/25))
