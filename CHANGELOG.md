@@ -10,6 +10,7 @@
 
 ### Dependencies
 - Bump `actions/checkout` from 4 to 5 ([#33](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/33))
+- Bump `actions/setup-java` from 4 to 5 ([#35](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/35))
 - Bump `dangoslen/dependabot-changelog-helper` from 3 to 4 ([#27](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/27))
 - Bump `io.gitlab.arturbosch.detekt` from 1.23.7 to 1.23.8 ([#25](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/25))
 - Bump `org.jlleitschuh.gradle.ktlint` from 12.1.2 to 13.0.0 ([#26](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/26), [#30](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/30), [#32](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/32))
