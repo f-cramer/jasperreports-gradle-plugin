@@ -20,7 +20,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: dangoslen/dependabot-changelog-helper@v4
         with:
-          activationLabel: 'dependabot'
+          activationLabels: 'dependabot'
           sort: alpha
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
