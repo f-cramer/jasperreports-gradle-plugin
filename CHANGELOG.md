@@ -16,6 +16,7 @@
 - Bump `gradle/actions` from 4 to 5 ([#37](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/37))
 - Bump `io.gitlab.arturbosch.detekt` from 1.23.7 to 1.23.8 ([#25](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/25))
 - Bump `org.jlleitschuh.gradle.ktlint` from 12.1.2 to 13.0.0 ([#26](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/26), [#30](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/30), [#32](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/32))
+- Bump `stefanzweifel/git-auto-commit-action` from 5 to 7 ([#38](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/38))
 
 ## 0.0.4 (2025-02-14)
 - Add classpath to property `JRCompiler.COMPILER_CLASSPATH`
