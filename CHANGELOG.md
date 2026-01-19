@@ -11,6 +11,7 @@
 ### Dependencies
 - Bump `actions/checkout` from 4 to 6 ([#33](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/33), [#41](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/41))
 - Bump `actions/setup-java` from 4 to 5 ([#35](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/35))
+- Bump `actions/stale` from 9 to 10 ([#43](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/43))
 - Bump `com.gradle.plugin-publish` from 1.3.1 to 2.0.0 ([#36](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/36))
 - Bump `dangoslen/dependabot-changelog-helper` from 3 to 4 ([#27](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/27))
 - Bump `gradle/actions/setup-gradle` from 4 to 5 ([#37](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/37))
