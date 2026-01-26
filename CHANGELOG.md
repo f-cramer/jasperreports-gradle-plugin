@@ -13,6 +13,7 @@
 - Bump `actions/setup-java` from 4 to 5 ([#35](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/35))
 - Bump `com.gradle.plugin-publish` from 1.3.1 to 2.0.0 ([#36](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/36))
 - Bump `dangoslen/dependabot-changelog-helper` from 3 to 4 ([#27](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/27))
+- Bump `gradle-wrapper` from 8.0.2 to 9.3.0 ([#44](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/44))
 - Bump `gradle/actions/setup-gradle` from 4 to 5 ([#37](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/37))
 - Bump `gradle/actions` from 4 to 5 ([#37](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/37))
 - Bump `io.gitlab.arturbosch.detekt` from 1.23.7 to 1.23.8 ([#25](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/25))
