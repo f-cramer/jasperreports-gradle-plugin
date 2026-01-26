@@ -62,7 +62,7 @@ testing.suites.named<JvmTestSuite>("test") {
     }
 }
 
-val gradleCurrent = GradleVersion.current().version
+val gradleCurrent: String = GradleVersion.current().version
 val gradle8Dot5 = "8.5"
 val gradle8Dot14 = "8.14.3"
 val gradle9Dot0 = "9.0.0"
@@ -171,7 +171,7 @@ release {
 }
 
 val changelogFile = File(rootDir, "CHANGELOG.md")
-val setChangelogDate = tasks.register("setChangelogDate") {
+val setChangelogDate: TaskProvider<Task> = tasks.register("setChangelogDate") {
     doLast {
         val changelog = changelogFile.readText()
         val now = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
@@ -180,7 +180,7 @@ val setChangelogDate = tasks.register("setChangelogDate") {
     }
 }
 
-val addChangelogEntry = tasks.register("addChangelogEntry") {
+val addChangelogEntry: TaskProvider<Task> = tasks.register("addChangelogEntry") {
     doLast {
         val changelog = changelogFile.readText()
         val entry = "## [unreleased]"
