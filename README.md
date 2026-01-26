@@ -4,7 +4,7 @@
 
 ## Description
 
-Provides the capability to compile JasperReports design files. This plugin is based on a private fork of [gradle-jasperreports](https://github.com/gmazelier/gradle-jasperreports) which seems to have been abandoned.
+Provides the ability to compile JasperReports design files. This plugin is based on a private fork of [gradle-jasperreports](https://github.com/gmazelier/gradle-jasperreports) which seems to have been abandoned.
 
 ## Usage
 
@@ -21,7 +21,7 @@ If your designs compilation needs to run after Groovy compilation, running `comp
 
     Total time: 6.577 secs
 
-To clean up and start fresh, simply run:
+To clean up and start fresh, run:
 
     $ gradle clean compileAllReports
 
@@ -58,7 +58,7 @@ The compilation task does *not* add a default version of JasperReports to the co
         classpath.from(configurations.compileClasspath)
     }
 
-Starting with JasperReports 7 the `'net.sf.jasperreports:jasperreports'` dependency no longer contains the JDT compiler (you may experience an exception with message "Unable to load report"). To use the default plugin configuration with JasperReports 7+ you have to add the dependency `'net.sf.jasperreports:jasperreports-jdt'` to the classpath. To do this, you can either add it to the pre-existing `jasperreportsClasspath` configuration, or you create your own configuration and add it to the classpath as shown above.
+Starting with JasperReports 7 the `'net.sf.jasperreports:jasperreports'` dependency no longer contains the JDT compiler (you may experience an exception with message "Unable to load report"). To use the default plugin configuration with JasperReports 7+, you have to add the dependency `'net.sf.jasperreports:jasperreports-jdt'` to the classpath. To do this, you can either add it to the pre-existing `jasperreportsClasspath` configuration, or you create your own configuration and add it to the classpath as shown above.
 
 ### Compatibility
 
@@ -99,7 +99,7 @@ Below is a complete example, with default values:
 
 ### Custom Build Process
 
-Adding a task dependency is very simple. For example, if you want to make sure that Java compilation is successfully performed before JasperReports designs compilation, just add the following to your build script:
+Adding a task dependency is basic. For example, if you want to make sure that Java compilation is successfully performed before JasperReports designs compilation, add the following to your build script:
 
     tasks.compileAllReports.configure {
         dependsOn(tasks.compileJava)
@@ -109,7 +109,7 @@ Adding a task dependency is very simple. For example, if you want to make sure t
 
 #### Adding Project Compiled Sources
 
-Use the `classpath` property to access your compiled sources in you JasperReports designs. Configure your build script in a similar way:
+Use the `classpath` property to access your compiled sources in your JasperReports designs. Configure your build script similarly:
 
     jasperreports {
         verbose = true
@@ -124,7 +124,7 @@ For dependencies that are only used to compile your JasperReports designs, these
 
 ## Getting Help
 
-To ask questions or report bugs, please use the [Github issues](https://github.com/f-cramer/jasperreports-gradle-plugin/issues).
+To ask questions or report bugs, please use the [GitHub issues](https://github.com/f-cramer/jasperreports-gradle-plugin/issues).
 
 ## License
 This plugin is licensed under [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
