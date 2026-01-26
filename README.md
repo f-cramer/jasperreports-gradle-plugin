@@ -119,7 +119,7 @@ Use the `classpath` property to access your compiled sources in you JasperReport
 For dependencies that are only used to compile your JasperReports designs, these can be added to the configuration `jasperreportsClasspath` that is automatically created by the plugin:
 
     dependencies {
-        jasperreportsCompile 'group:name:version'
+        jasperreportsClasspath 'group:name:version'
     }
 
 ## Getting Help
