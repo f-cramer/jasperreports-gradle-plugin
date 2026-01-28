@@ -13,6 +13,10 @@ import java.io.File
 import java.util.Properties
 
 fun compileReport(task: CompilationTask) {
+    if (task.configuration.isVerbose) {
+        println("compiling with java.version = ${System.getProperty("java.version")}")
+    }
+
     val context = configureJasperReportsContext(task.configuration)
     val compileManager = JasperCompileManager.getInstance(context)
 

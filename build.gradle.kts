@@ -136,7 +136,11 @@ for (javaVersion in javaVersions) {
                         },
                     )
                     systemProperty("jasperreports.version", jasperreportsVersion)
+                    systemProperty("java.versions", javaVersions.joinToString(separator = ","))
                     systemProperty("gradle.versions", nonIgnoredGradleVersions)
+                    (properties["org.gradle.java.installations.paths"] as? String)?.let {
+                        systemProperty("org.gradle.java.installations.paths", it)
+                    }
                 }
             }
         }

@@ -17,4 +17,6 @@ interface CompilationParameters : WorkParameters {
     val tmpDir: DirectoryProperty
 
     val classpath: SetProperty<File>
+
+    val verbose: Property<Boolean>
 }

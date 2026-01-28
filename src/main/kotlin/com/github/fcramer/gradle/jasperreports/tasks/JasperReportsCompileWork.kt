@@ -15,6 +15,7 @@ abstract class JasperReportsCompileWork : WorkAction<CompilationParameters> {
         val keepJava = parameters.keepJava.get()
         val tmpDir = parameters.tmpDir.asFile.get()
         val classpath = parameters.classpath.get()
+        val verbose = parameters.verbose.get()
 
         val task = CompilationTask(
             source,
@@ -25,6 +26,7 @@ abstract class JasperReportsCompileWork : WorkAction<CompilationParameters> {
                 keepJava,
                 tmpDir,
                 classpath,
+                verbose,
             ),
         )
 

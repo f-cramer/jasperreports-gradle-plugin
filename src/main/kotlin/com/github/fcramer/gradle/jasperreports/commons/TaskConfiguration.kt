@@ -8,4 +8,5 @@ data class TaskConfiguration(
     val isKeepJava: Boolean,
     val tmpDir: File,
     val classpath: Collection<File>,
+    val isVerbose: Boolean,
 )
