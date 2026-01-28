@@ -111,7 +111,8 @@ abstract class JasperReportsCompileTask : DefaultTask() {
             }
         }
 
-        val configuration = TaskConfiguration(compiler.getOrNull(), validateXml.get(), keepJava.get(), tmpDir.asFile.get(), classpath.files)
+        val configuration =
+            TaskConfiguration(compiler.getOrNull(), validateXml.get(), keepJava.get(), tmpDir.asFile.get(), classpath.files, verbose.get())
 
         val compilationTasks = buildSet {
             for (change in inputs.getFileChanges(srcDir)) {
@@ -138,6 +139,7 @@ abstract class JasperReportsCompileTask : DefaultTask() {
                 validateXml.set(taskConfig.isValidateXml)
                 keepJava.set(taskConfig.isKeepJava)
                 classpath.set(taskConfig.classpath)
+                verbose.set(taskConfig.isVerbose)
             }
         }
 

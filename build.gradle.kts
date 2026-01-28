@@ -95,6 +95,13 @@ val jasperreportsVersions = listOf(
     "7.0.3",
 )
 
+val preferredGradleVersionByJavaVersion = mapOf(
+    java8 to gradleCurrent,
+    java17 to gradleCurrent,
+    java21 to gradle8Dot5,
+    java25 to gradle9Dot2,
+)
+
 val ignoredJavaVersionsByGradleVersion = mapOf(
     gradleCurrent to listOf(java25),
     gradle8Dot5 to listOf(java25),
@@ -136,7 +143,12 @@ for (javaVersion in javaVersions) {
                         },
                     )
                     systemProperty("jasperreports.version", jasperreportsVersion)
+                    systemProperty("java.versions", javaVersions.joinToString(separator = ","))
+                    systemProperty("gradle.version.preferred", preferredGradleVersionByJavaVersion.getValue(javaVersion))
                     systemProperty("gradle.versions", nonIgnoredGradleVersions)
+                    (properties["org.gradle.java.installations.paths"] as? String)?.let {
+                        systemProperty("org.gradle.java.installations.paths", it)
+                    }
                 }
             }
         }

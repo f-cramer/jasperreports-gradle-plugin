@@ -21,7 +21,14 @@ class CompilationUtilsTest {
         val tmp = File(directory, "tmp")
 
         val configuration =
-            TaskConfiguration(compiler = null, isValidateXml = true, isKeepJava = false, tmpDir = tmp, classpath = emptySet())
+            TaskConfiguration(
+                compiler = null,
+                isValidateXml = true,
+                isKeepJava = false,
+                tmpDir = tmp,
+                classpath = emptySet(),
+                isVerbose = false,
+            )
         compileReport(CompilationTask(input, output, configuration))
     }
 
