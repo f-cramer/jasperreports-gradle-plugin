@@ -2,6 +2,7 @@ package com.github.cramer.gradle.jasperreports
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
+import com.github.fcramer.gradle.jasperreports.utils.getJasperreportsVersion
 import org.gradle.testkit.runner.GradleRunner
 import org.gradle.testkit.runner.TaskOutcome
 import org.junit.jupiter.api.BeforeEach
@@ -26,6 +27,14 @@ class CacheTest {
                 plugins {
                     java
                     id("io.github.f-cramer.jasperreports")
+                }
+
+                repositories {
+                    mavenCentral()
+                }
+
+                dependencies {
+                    jasperreportsClasspath("net.sf.jasperreports:jasperreports:${getJasperreportsVersion()}")
                 }
             """.trimIndent(),
         )
@@ -66,7 +75,7 @@ class CacheTest {
         CacheTest::class.java.getResourceAsStream("/$templateName.jrxml")!!.use { input ->
             val outputDirectory = File(projectDirectory, "src/main/reports")
             outputDirectory.mkdirs()
-            val outputFile = File(outputDirectory, "$templateName.jasper")
+            val outputFile = File(outputDirectory, "$templateName.jrxml")
             Files.newOutputStream(outputFile.toPath()).use { output ->
                 input.copyTo(output)
             }
