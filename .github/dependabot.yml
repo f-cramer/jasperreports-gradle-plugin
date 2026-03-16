@@ -5,6 +5,7 @@ updates:
     directory: /
     schedule:
       interval: daily
+    open-pull-requests-limit: 9999
     labels:
       - dependabot
       - dependencies
