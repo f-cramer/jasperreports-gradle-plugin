@@ -81,11 +81,13 @@ val java8 = 8
 val java17 = 17
 val java21 = 21
 val java25 = 25
+val java26 = 26
 val javaVersions = listOf(
     java8,
     java17,
     java21,
     java25,
+    java26,
 )
 
 val jasperreportsVersions = listOf(
@@ -98,11 +100,11 @@ val jasperreportsVersions = listOf(
 )
 
 val ignoredJavaVersionsByGradleVersion = mapOf(
-    gradleCurrent to listOf(java25),
-    gradle8Dot5 to listOf(java25),
-    gradle8Dot14 to listOf(java25),
-    gradle9Dot0 to listOf(java8),
-    gradle9Dot2 to listOf(java8),
+    gradleCurrent to listOf(java25, java26),
+    gradle8Dot5 to listOf(java25, java26),
+    gradle8Dot14 to listOf(java25, java26),
+    gradle9Dot0 to listOf(java8, java26),
+    gradle9Dot2 to listOf(java8, java26),
     gradle9Dot4 to listOf(java8),
 )
 
