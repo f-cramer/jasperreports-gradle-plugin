@@ -69,7 +69,7 @@ The plugin is tested with Java 8, 17, 21 and 25 and the following JasperReports 
 * 6.19.1
 * 6.20.6
 * 6.21.5
-* 7.0.3
+* 7.0.6
 
 Caching tests are run using the following Gradle versions if they are compatible with a given Java version
 

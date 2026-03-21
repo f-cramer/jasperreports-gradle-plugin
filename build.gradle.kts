@@ -94,7 +94,7 @@ val jasperreportsVersions = listOf(
     "6.19.1",
     "6.20.6",
     "6.21.5",
-    "7.0.3",
+    "7.0.6",
 )
 
 val ignoredJavaVersionsByGradleVersion = mapOf(
