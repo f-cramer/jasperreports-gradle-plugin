@@ -67,12 +67,14 @@ val gradle8Dot5 = "8.5"
 val gradle8Dot14 = "8.14.3"
 val gradle9Dot0 = "9.0.0"
 val gradle9Dot2 = "9.2.1"
+val gradle9Dot4 = "9.4.1"
 val gradleVersions = listOf(
     gradleCurrent,
     gradle8Dot5,
     gradle8Dot14,
     gradle9Dot0,
     gradle9Dot2,
+    gradle9Dot4,
 )
 
 val java8 = 8
@@ -101,6 +103,7 @@ val ignoredJavaVersionsByGradleVersion = mapOf(
     gradle8Dot14 to listOf(java25),
     gradle9Dot0 to listOf(java8),
     gradle9Dot2 to listOf(java8),
+    gradle9Dot4 to listOf(java8),
 )
 
 for (javaVersion in javaVersions) {
