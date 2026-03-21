@@ -62,7 +62,7 @@ Starting with JasperReports 7 the `'net.sf.jasperreports:jasperreports'` depende
 
 ### Compatibility
 
-The plugin is tested with Java 8, 17, 21 and 25 and the following JasperReports versions
+The plugin is tested with Java 8, 17, 21, 25 and 26 and the following JasperReports versions
 
 * 6.17.0
 * 6.18.1
