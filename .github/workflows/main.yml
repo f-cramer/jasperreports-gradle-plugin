@@ -19,6 +19,7 @@ jobs:
             8
             21
             25
+            26
             17
           distribution: 'temurin'
       - name: Setup Gradle
