@@ -69,7 +69,7 @@ The plugin is tested with Java 8, 17, 21, 25 and 26 and the following JasperRepo
 * 6.19.1
 * 6.20.6
 * 6.21.5
-* 7.0.6
+* 7.0.8
 
 Caching tests are run using the following Gradle versions if they are compatible with a given Java version
 
