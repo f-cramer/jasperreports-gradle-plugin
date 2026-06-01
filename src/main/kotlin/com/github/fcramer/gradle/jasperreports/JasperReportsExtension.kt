@@ -38,4 +38,6 @@ abstract class JasperReportsExtension(
         .convention(false)
     val useRelativeOutDir: Property<Boolean> = project.objects.property<Boolean>()
         .convention(true)
+    val clearOutDir: Property<Boolean> = project.objects.property<Boolean>()
+        .convention(true)
 }

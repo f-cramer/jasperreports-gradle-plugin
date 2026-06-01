@@ -1,6 +1,7 @@
 package com.github.cramer.gradle.jasperreports.utils
 
 import assertk.assertThat
+import assertk.assertions.contains
 import assertk.assertions.isNotNull
 import com.github.cramer.gradle.jasperreports.getReportTemplateNameWithoutExtension
 import com.github.fcramer.gradle.jasperreports.commons.CompilationTask
@@ -23,6 +24,24 @@ class CompilationUtilsTest {
         val configuration =
             TaskConfiguration(compiler = null, isValidateXml = true, isKeepJava = false, tmpDir = tmp, classpath = emptySet())
         compileReport(CompilationTask(input, output, configuration))
+    }
+
+    @Test
+    fun ignoresExistingFilesInOutputDir(@TempDir directory: File?) {
+        val fileName = getReportTemplateNameWithoutExtension()
+        val input = File(directory, "$fileName.jrxml")
+        writeFile("/" + input.name, input)
+        val output = File(directory, "$fileName.jasper")
+        val tmp = File(directory, "tmp")
+        // write some content into a file in output folder
+        val existingFileInOutput = File(directory, "existing.file")
+        writeFile("/" + input.name, existingFileInOutput)
+
+        val configuration =
+            TaskConfiguration(compiler = null, isValidateXml = true, isKeepJava = false, tmpDir = tmp, classpath = emptySet())
+        compileReport(CompilationTask(input, output, configuration))
+
+        assertThat(directory!!.listFiles().map { it.name }).contains("existing.file")
     }
 
     private fun writeFile(resource: String, file: File) {

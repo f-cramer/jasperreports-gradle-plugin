@@ -88,6 +88,10 @@ abstract class JasperReportsCompileTask : DefaultTask() {
     val validateXml: Property<Boolean> = project.objects.property<Boolean>()
         .convention(true)
 
+    @get:Input
+    val clearOutDir: Property<Boolean> = project.objects.property<Boolean>()
+        .convention(true)
+
     @get:Inject
     abstract val workerExecutor: WorkerExecutor
 
@@ -102,8 +106,8 @@ abstract class JasperReportsCompileTask : DefaultTask() {
             logDependencies()
         }
 
-        // delete all output if not incremental
-        if (!inputs.isIncremental) {
+        // delete all output if not incremental and clearOutDir is set
+        if (!inputs.isIncremental && clearOutDir.get()) {
             outDir.asFileTree.visit {
                 if (!isDirectory) {
                     file.delete()

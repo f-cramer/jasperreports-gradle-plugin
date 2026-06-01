@@ -47,6 +47,7 @@ Below are the parameters that can be used to configure the build:
 | `validateXml`       | `boolean`                    | Validate source files before compiling. Default value: `true`                                 |
 | `verbose`           | `boolean`                    | Verbose plugin outpout. Default value: `false`                                                |
 | `useRelativeOutDir` | `boolean`                    | The outDir is relative to java classpath. Default value: `true`                               |
+| `clearOutDir`       | `boolean`                    | If output directory should be clear before plugin execution. Default value: `true`            |
 | `classpath`         | `ConfigurableFileCollection` | Classpath to use for compilation. Default value: `<empty>`                                    |
 | `launcher`          | `JavaLauncher`               | Launcher from standard java toolchain                                                         |
 
@@ -95,6 +96,7 @@ Below is a complete example, with default values:
         validateXml = true
         verbose = false
         useRelativeOutDir = true
+        clearOutDir = true
         classpath.from()
     }
 

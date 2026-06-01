@@ -34,6 +34,7 @@ class JasperReportsPlugin : Plugin<Project> {
             useRelativeOutDir.convention(extension.useRelativeOutDir)
             keepJava.convention(extension.keepJava)
             validateXml.convention(extension.validateXml)
+            clearOutDir.convention(extension.clearOutDir)
         }
     }
 

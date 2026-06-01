@@ -54,6 +54,7 @@ class JasperReportsPluginTest {
         assertThat(extension.validateXml.get()).isTrue()
         assertThat(extension.verbose.get()).isFalse()
         assertThat(extension.useRelativeOutDir.get()).isTrue()
+        assertThat(extension.clearOutDir.get()).isTrue()
     }
 
     @Test
