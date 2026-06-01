@@ -77,8 +77,7 @@ Caching tests are run using the following Gradle versions if they are compatible
 * 8.5
 * 8.14.3
 * 9.0.0
-* 9.2.1
-* 9.4.1
+* 9.5.1
 
 ### Example
 

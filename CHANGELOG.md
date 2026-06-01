@@ -10,6 +10,7 @@
 - Run tests for JasperReports 7.0.6 instead of 7.0.3
 - Run tests on Java 26
 - Run tests for JasperReports 7.0.8 instead of 7.0.6
+- Run tests on Gradle 9.7.0 instead of 9.2.1 and 9.4.1
 
 ### Dependencies
 - Bump `actions/checkout` from 4 to 6 ([#33](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/33), [#41](https://github.com/f-cramer/jasperreports-gradle-plugin/pull/41))
