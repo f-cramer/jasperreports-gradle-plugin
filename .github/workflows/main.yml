@@ -16,10 +16,10 @@ jobs:
         with:
           # last one is default version
           java-version: |
-            17
+            8
             21
             25
-            8
+            17
           distribution: 'temurin'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v6

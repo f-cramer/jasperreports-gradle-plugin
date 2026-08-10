@@ -62,14 +62,14 @@ testing.suites.named<JvmTestSuite>("test") {
     }
 }
 
-val gradleCurrent: String = GradleVersion.current().version
+val gradle8Dot0 = "8.0.2"
 val gradle8Dot5 = "8.5"
 val gradle8Dot14 = "8.14.3"
 val gradle9Dot0 = "9.0.0"
 val gradle9Dot2 = "9.2.1"
 val gradle9Dot4 = "9.4.1"
 val gradleVersions = listOf(
-    gradleCurrent,
+    gradle8Dot0,
     gradle8Dot5,
     gradle8Dot14,
     gradle9Dot0,
@@ -98,7 +98,7 @@ val jasperreportsVersions = listOf(
 )
 
 val ignoredJavaVersionsByGradleVersion = mapOf(
-    gradleCurrent to listOf(java25),
+    gradle8Dot0 to listOf(java25),
     gradle8Dot5 to listOf(java25),
     gradle8Dot14 to listOf(java25),
     gradle9Dot0 to listOf(java8),
@@ -165,7 +165,7 @@ gradlePlugin {
 }
 
 release {
-    tagTemplate.set("v\$version")
+    tagTemplate.set($$"v$version")
     preTagCommitMessage.set("[Gradle Release Plugin] - release version ")
     newVersionCommitMessage.set("[Gradle Release Plugin] - start work on ")
     git {
