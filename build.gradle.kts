@@ -30,10 +30,10 @@ repositories {
 val jasperreportsVersion = "6.17.0"
 
 dependencies {
-    compileOnly(group = "net.sf.jasperreports", name = "jasperreports", version = jasperreportsVersion)
+    compileOnly("net.sf.jasperreports:jasperreports:$jasperreportsVersion")
 
-    testCompileOnly(group = "net.sf.jasperreports", name = "jasperreports", version = jasperreportsVersion)
-    testImplementation(group = "com.willowtreeapps.assertk", name = "assertk-jvm", version = "0.28.1")
+    testCompileOnly("net.sf.jasperreports:jasperreports:$jasperreportsVersion")
+    testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.28.1")
     testImplementation(gradleTestKit())
 }
 
@@ -62,7 +62,7 @@ testing.suites.named<JvmTestSuite>("test") {
     }
 }
 
-val gradleCurrent = GradleVersion.current().version
+val gradleCurrent: String = GradleVersion.current().version
 val gradle8Dot5 = "8.5"
 val gradle8Dot14 = "8.14.3"
 val gradle9Dot0 = "9.0.0"
@@ -175,6 +175,7 @@ release {
 
 val changelogFile = File(rootDir, "CHANGELOG.md")
 val setChangelogDate = tasks.register("setChangelogDate") {
+    description = "Replaces the [unreleased] entry of the changelog with one containing the current date, if present"
     doLast {
         val changelog = changelogFile.readText()
         val now = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
@@ -184,6 +185,7 @@ val setChangelogDate = tasks.register("setChangelogDate") {
 }
 
 val addChangelogEntry = tasks.register("addChangelogEntry") {
+    description = "Adds a new [unreleased] entry to the changelog if it is not already present"
     doLast {
         val changelog = changelogFile.readText()
         val entry = "## [unreleased]"
